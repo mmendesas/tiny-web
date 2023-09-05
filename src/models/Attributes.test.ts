@@ -1,6 +1,7 @@
 import { Attributes } from './Attributes';
 
-interface Movie {
+export interface Movie {
+  id?: number;
   title?: string;
   description?: string;
   review?: number;
