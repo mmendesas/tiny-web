@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Sync } from './Sync';
 
-import { Movie } from './Attributes.test';
+import { MovieProps } from './Attributes.test';
 
 jest.mock('axios');
 
@@ -13,7 +13,7 @@ const movies = [
 ];
 
 describe('Sync', () => {
-  const sync = new Sync<Movie>('some-url');
+  const sync = new Sync<MovieProps>('some-url');
 
   it('should return list', async () => {
     // given

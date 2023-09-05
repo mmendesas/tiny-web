@@ -1,6 +1,6 @@
 import { Attributes } from './Attributes';
 
-export interface Movie {
+export interface MovieProps {
   id?: number;
   title?: string;
   description?: string;
@@ -16,7 +16,7 @@ describe('Attributes', () => {
     watched: true,
   };
 
-  const attrs = new Attributes<Movie>(movie);
+  const attrs = new Attributes<MovieProps>(movie);
 
   describe('get()', () => {
     it('should have access to properties', () => {
