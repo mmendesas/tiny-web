@@ -6,7 +6,11 @@ const todo = new Todo({
   color: 'red',
 });
 
-console.log(todo.get('title'));
-console.log(todo.set({ color: 'green' }));
+todo.on('change', () => {
+  console.log('changed >>', todo.data);
+});
 
-console.log(todo);
+console.log('before >> ', todo.data);
+
+todo.set({ title: 'new title' });
+todo.trigger('change');
