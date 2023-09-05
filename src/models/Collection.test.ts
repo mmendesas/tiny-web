@@ -26,13 +26,17 @@ class Movie extends Model<MovieProps> {
       new Sync<MovieProps>(FAKE_URL)
     );
   }
+
+  static buildCollection(): Collection<Movie, MovieProps> {
+    return new Collection<Movie, MovieProps>(
+      FAKE_URL, //
+      (json: MovieProps) => Movie.buildMovie(json)
+    );
+  }
 }
 
 describe('collection', () => {
-  const collection = new Collection<Movie, MovieProps>(
-    FAKE_URL,
-    (json: MovieProps) => Movie.buildMovie(json)
-  );
+  const collection = Movie.buildCollection();
 
   const callback = jest.fn();
   collection.on('change', () => {
