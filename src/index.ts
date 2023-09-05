@@ -1,4 +1,4 @@
-import { Todo } from './models/Todo';
+import { Todo } from './models/Todo.old';
 
 const todo = new Todo({ id: 1 });
 
