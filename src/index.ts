@@ -1,9 +1,9 @@
-import { Todo } from './models/Todo';
+import { TodoForm } from './views/TodoForm';
 
-const todo = Todo.buildTodo({ id: 1 });
+const root = document.getElementById('root');
 
-todo.on('change', () => {
-  console.log(todo);
-});
-
-todo.fetch();
+if (root) {
+  console.log('asdfds');
+  const todoForm = new TodoForm(root);
+  todoForm.render();
+}

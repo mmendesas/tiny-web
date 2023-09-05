@@ -18,3 +18,11 @@
 
 - extract everything to a generic Model class
 - add some unit tests
+
+### task 004
+
+- adding views
+- each view must render html
+- nested views in another
+- handle events (click, hover)
+- get element from produced Html
