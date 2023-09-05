@@ -1,11 +1,9 @@
-import { Todo } from './models/Todo.old';
+import { Todo } from './models/Todo';
 
-const todo = new Todo({ id: 1 });
-
-console.log('beforre', todo.attributes.data);
+const todo = Todo.buildTodo({ id: 1 });
 
 todo.on('change', () => {
-  console.log('change called', todo.attributes.data);
+  console.log(todo);
 });
 
 todo.fetch();

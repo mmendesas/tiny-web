@@ -13,3 +13,8 @@
 
 - apply compostion and separate classes
 - pass through methods in order to use (todo.on, todo.set) instead of todo.events.on
+
+### task 003
+
+- extract everything to a generic Model class
+- add some unit tests
