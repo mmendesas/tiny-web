@@ -1,6 +1,30 @@
 export class TodoForm {
   constructor(public parent: Element) {}
 
+  eventsMap(): { [key: string]: () => void } {
+    return {
+      'click:button': this.onButtonClick,
+    };
+  }
+
+  bindEvents(fragment: DocumentFragment): void {
+    const eventsMap = this.eventsMap();
+
+    for (let eventKey in eventsMap) {
+      const [eventName, selector] = eventKey.split(':');
+
+      fragment
+        .querySelectorAll(selector) //
+        .forEach((element: Element): void => {
+          element.addEventListener(eventName, eventsMap[eventKey]);
+        });
+    }
+  }
+
+  onButtonClick(): void {
+    console.log('button clicked');
+  }
+
   template(): string {
     return `
       <div>
@@ -28,6 +52,9 @@ export class TodoForm {
     // real html from string
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
+
+    // bind events
+    this.bindEvents(templateElement.content);
 
     // add to root
     this.parent.append(templateElement.content);
