@@ -12,7 +12,7 @@ export interface TodoProps {
 
 const BASE_URL = 'http://localhost:3000/todos';
 
-export class Todo {
+export class TodoOld {
   public events: Events = new Events();
   public sync: Sync<TodoProps> = new Sync<TodoProps>(BASE_URL);
   public attributes: Attributes<TodoProps>;

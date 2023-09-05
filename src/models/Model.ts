@@ -1,17 +1,17 @@
-import { AxiosResponse } from 'axios';
+import { AxiosPromise, AxiosResponse } from 'axios';
 
-interface Attributes<T> {
+interface IAttributes<T> {
   get<K extends keyof T>(key: K): T[K];
   getAll(): T;
   set(update: T): void;
 }
 
-interface Sync<T> {
-  fetch(id: number): AxiosResponse;
-  save(data: T): AxiosResponse;
+interface ISync<T> {
+  fetch(id: number): AxiosPromise;
+  save(data: T): AxiosPromise;
 }
 
-interface Events {
+interface IEvents {
   on(eventName: string, callback: () => void): void;
   trigger(eventName: string): void;
 }
@@ -22,9 +22,9 @@ export interface HasId {
 
 export class Model<T extends HasId> {
   constructor(
-    private attributes: Attributes<T>,
-    private events: Events,
-    private sync: Sync<T>
+    private attributes: IAttributes<T>,
+    private events: IEvents,
+    private sync: ISync<T>
   ) {}
 
   // on = this.events.on

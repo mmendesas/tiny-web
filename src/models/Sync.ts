@@ -1,13 +1,13 @@
-import axios, { AxiosPromise, AxiosResponse } from 'axios';
+import axios, { AxiosPromise } from 'axios';
 
 interface HasId {
   id?: number;
 }
 
+// fetching system
 export class Sync<T extends HasId> {
   constructor(public baseURL: string) {}
 
-  // fetching system
   fetch(id: number): AxiosPromise {
     return axios.get(`${this.baseURL}/${id}`);
   }
