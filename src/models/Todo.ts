@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { Events } from './Events';
 
 interface TodoProps {
   id?: number;
@@ -7,13 +8,10 @@ interface TodoProps {
   done?: boolean;
 }
 
-// type alias
-type Callback = () => void;
-
 const BASE_URL = 'http://localhost:3000/todos';
 
 export class Todo {
-  events: { [key: string]: Callback[] } = {};
+  events: Events = new Events();
 
   constructor(private data: TodoProps) {}
 
@@ -23,21 +21,6 @@ export class Todo {
 
   set(update: TodoProps): void {
     Object.assign(this.data, update);
-  }
-
-  // events
-  on(eventName: string, callback: Callback): void {
-    const handlers = this.events[eventName] || [];
-    handlers.push(callback);
-
-    this.events[eventName] = handlers;
-  }
-
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName];
-    if (!handlers || handlers.length === 0) return;
-
-    handlers.forEach((cb: Callback) => cb());
   }
 
   // fetching system

@@ -8,3 +8,7 @@
 - class to store data (get / set)
 - class to notify the whole app (eventing system)
 - class to persist data outside (fetch/save)
+
+## task 002
+
+- apply compostion and separate classes
