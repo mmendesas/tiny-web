@@ -12,3 +12,4 @@
 ## task 002
 
 - apply compostion and separate classes
+- pass through methods in order to use (todo.on, todo.set) instead of todo.events.on
