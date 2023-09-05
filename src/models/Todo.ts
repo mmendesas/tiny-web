@@ -27,4 +27,9 @@ export class Todo {
   get trigger() {
     return this.events.trigger;
   }
+
+  set(update: TodoProps): void {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  }
 }
