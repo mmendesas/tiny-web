@@ -1,5 +1,5 @@
 import { Todo } from './models/Todo';
-import { TodoForm } from './views/TodoForm';
+import { TodoContainer } from './views/TodoContainer';
 
 const root = document.getElementById('root');
 const todo = Todo.buildTodo({
@@ -9,6 +9,6 @@ const todo = Todo.buildTodo({
 });
 
 if (root) {
-  const todoForm = new TodoForm(root, todo);
-  todoForm.render();
+  const container = new TodoContainer(root, todo);
+  container.render();
 }
