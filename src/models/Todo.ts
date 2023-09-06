@@ -15,4 +15,9 @@ export class Todo extends Model<TodoProps> {
       new Sync<TodoProps>(BASE_URL)
     );
   }
+
+  setRandomColor(): void {
+    const color = Math.floor(Math.random() * 16777215).toString(16);
+    this.set({ color: `#${color}` });
+  }
 }

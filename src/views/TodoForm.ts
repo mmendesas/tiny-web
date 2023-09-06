@@ -1,62 +1,44 @@
-export class TodoForm {
-  constructor(public parent: Element) {}
+import { Todo } from '../models/Todo';
+import { TodoProps } from '../models/Todo.old';
+import { View } from './View';
 
+export class TodoForm extends View<Todo, TodoProps> {
   eventsMap(): { [key: string]: () => void } {
     return {
-      'click:button': this.onButtonClick,
+      'click:.set-color': this.onSetColorClick,
+      'click:.set-title': this.onSetTitleClick,
     };
   }
 
-  bindEvents(fragment: DocumentFragment): void {
-    const eventsMap = this.eventsMap();
+  onSetColorClick = (): void => {
+    this.model.setRandomColor();
+  };
 
-    for (let eventKey in eventsMap) {
-      const [eventName, selector] = eventKey.split(':');
-
-      fragment
-        .querySelectorAll(selector) //
-        .forEach((element: Element): void => {
-          element.addEventListener(eventName, eventsMap[eventKey]);
-        });
+  onSetTitleClick = (): void => {
+    const input = this.parent.querySelector('.title') as HTMLInputElement;
+    if (input) {
+      const title = input.value;
+      this.model.set({ title });
     }
-  }
-
-  onButtonClick(): void {
-    console.log('button clicked');
-  }
+  };
 
   template(): string {
     return `
       <div>
         <ul>
           <li>
-            <span>some title here</span>
-            <input type="checkbox">done?</input>
-            <span>{color}</span>
+            <span>${this.model.get('title')}</span>
+            <input class="done" type="checkbox">done?</input>
+
+            <span style="font-weight: bold; padding: 5px 15px; margin-left: 10px;
+              background-color:${this.model.get('color')}" />
           </li>
         </ul>
 
-        <br />
-        <br />
-
-        <input type="text" placeholder="add task ..." />
-        <button>change color</button>
+        <input class="title" type="text" placeholder="add task ..." />
+        <button class="set-color">Change Color</button>
+        <button class="set-title">Set Title</button>
       </div>
     `;
-  }
-
-  render(): void {
-    // clear old stuff
-    this.parent.innerHTML = '';
-
-    // real html from string
-    const templateElement = document.createElement('template');
-    templateElement.innerHTML = this.template();
-
-    // bind events
-    this.bindEvents(templateElement.content);
-
-    // add to root
-    this.parent.append(templateElement.content);
   }
 }
