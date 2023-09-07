@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
-import { Attributes } from './Attributes';
-import { Events } from './Events';
-import { Sync } from './Sync';
+import { Attributes } from '../lib/models/Attributes';
+import { Events } from '../lib/models/Events';
+import { Sync } from '../lib/models/Sync';
 
 export interface TodoProps {
   id?: number;

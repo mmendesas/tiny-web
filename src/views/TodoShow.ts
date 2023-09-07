@@ -1,6 +1,6 @@
 import { Todo } from '../models/Todo';
 import { TodoProps } from '../models/Todo.old';
-import { View } from './View';
+import { View } from '../lib/views/View';
 
 export class TodoShow extends View<Todo, TodoProps> {
   template(): string {

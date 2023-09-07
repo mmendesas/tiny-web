@@ -3,7 +3,7 @@ import { TodoProps } from '../models/Todo.old';
 import { TodoForm } from './TodoForm';
 import { TodoShow } from './TodoShow';
 
-import { View } from './View';
+import { View } from '../lib/views/View';
 
 export class TodoContainer extends View<Todo, TodoProps> {
   regionsMap(): { [key: string]: string } {

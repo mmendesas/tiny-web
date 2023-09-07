@@ -1,6 +1,6 @@
 import { Todo } from '../models/Todo';
 import { TodoProps } from '../models/Todo.old';
-import { View } from './View';
+import { View } from '../lib/views/View';
 
 export class TodoForm extends View<Todo, TodoProps> {
   eventsMap(): { [key: string]: () => void } {

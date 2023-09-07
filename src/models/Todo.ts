@@ -1,9 +1,9 @@
 import { TodoProps } from './Todo.old';
 
-import { Model } from './Model';
-import { Attributes } from './Attributes';
-import { Events } from './Events';
-import { Sync } from './Sync';
+import { Model } from '../lib/models/Model';
+import { Attributes } from '../lib/models/Attributes';
+import { Events } from '../lib/models/Events';
+import { Sync } from '../lib/models/Sync';
 
 const BASE_URL = 'http://localhost:3000/todos';
 
