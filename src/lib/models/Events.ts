@@ -1,5 +1,5 @@
 // type alias
-type Callback = () => void;
+type Callback = (payload: any) => void;
 
 export class Events {
   events: { [key: string]: Callback[] } = {};
@@ -12,10 +12,10 @@ export class Events {
     this.events[eventName] = handlers;
   };
 
-  trigger = (eventName: string): void => {
+  trigger = (eventName: string, payload?: any): void => {
     const handlers = this.events[eventName];
     if (!handlers || handlers.length === 0) return;
 
-    handlers.forEach((cb: Callback) => cb());
+    handlers.forEach((cb: Callback) => cb(payload));
   };
 }

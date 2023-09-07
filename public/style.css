@@ -1,0 +1,73 @@
+.app{
+  font-family: sans-serif;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.todo-container {
+  width: 500px;
+  background-color: rgb(218, 224, 242);
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 20px auto;
+}
+
+.todo-container h1 {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 3px dashed #aaa;
+}
+
+.todo-container ul {
+  margin: 20px;
+}
+
+.todo-container ul li {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.todo-item span:not(:first-child) {
+  float: right;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.todo-item span.remove {
+  background-color: #f0cacf;
+}
+
+.todo-item span.finished {
+  background-color: #b4f5b4;
+  margin-right: 5px;
+}
+
+.todo-item span.line {
+  text-decoration: line-through;
+  color: #79a1b5;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: center;
+
+  border-radius: 10px;
+  margin-top: 20px;
+  background: rgb(184, 184, 241);
+  padding: 10px;
+}
+
+.todo-input input {
+  padding: 4px 10px;
+  margin-right: 5px;
+}
+
+.todo-input input:first-child {
+  width: 320px;
+}

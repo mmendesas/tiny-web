@@ -2,11 +2,11 @@
   "todos": [
     {
       "id": 1,
-      "title": "new thing"
+      "title": "wake up early and read"
     },
     {
-      "title": "new todo",
-      "id": 3
+      "title": "training for that presentation",
+      "id": 2
     }
   ]
 }

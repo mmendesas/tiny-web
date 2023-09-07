@@ -11,9 +11,9 @@ interface ISync<T> {
   save(data: T): AxiosPromise;
 }
 
-interface IEvents {
-  on(eventName: string, callback: () => void): void;
-  trigger(eventName: string): void;
+interface IEvents<T> {
+  on(eventName: string, callback: (payload?: T) => void): void;
+  trigger(eventName: string, payload?: T): void;
 }
 
 export interface HasId {
@@ -23,7 +23,7 @@ export interface HasId {
 export class Model<T extends HasId> {
   constructor(
     private attributes: IAttributes<T>,
-    private events: IEvents,
+    private events: IEvents<T>,
     private sync: ISync<T>
   ) {}
 

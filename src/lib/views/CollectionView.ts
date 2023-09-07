@@ -6,7 +6,7 @@ export abstract class CollectionView<T, K> {
     public collection: Collection<T, K>
   ) {}
 
-  abstract renderItem(mode: T, itemParent: Element): void;
+  abstract renderItem(model: T, itemParent: Element): void;
 
   render = (): void => {
     this.parent.innerHTML = '';

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start:db": "json-server -w db.json",
-    "start:parcel": "npx parcel index.html",
+    "start:parcel": "npx parcel public/index.html",
     "start": "concurrently npm:start:*",
     "test": "jest --watch"
   },

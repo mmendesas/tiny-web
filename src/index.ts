@@ -1,14 +1,12 @@
 import { Todo } from './models/Todo';
-import { TodoContainer } from './views/TodoContainer';
 
-const root = document.getElementById('root');
+import { App } from './views/App';
+
+const root = document.getElementById('root') as HTMLElement;
 const todo = Todo.buildTodo({
-  title: 'my task 001',
-  color: 'cyan',
+  title: 'fake todo',
   done: false,
 });
 
-if (root) {
-  const container = new TodoContainer(root, todo);
-  container.render();
-}
+const app = new App(root, todo);
+app.initialize();
